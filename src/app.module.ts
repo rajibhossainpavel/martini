@@ -1,10 +1,11 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
+import { TypegooseModule } from 'nestjs-typegoose';
+import { CatModule } from './cat/cat.module';
 
 @Module({
-  imports: [],
-  controllers: [AppController],
-  providers: [AppService],
+  imports: [
+    TypegooseModule.forRoot('mongodb://localhost:27017/martini'),
+    CatModule
+  ]
 })
 export class AppModule {}

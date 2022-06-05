@@ -7,3 +7,15 @@ yarn  add @nestjs-query/core @nestjs/common class-transformer
 yarn add @nestjs-query/query-graphql @nestjs/common @nestjs/graphql graphql graphql-subscriptions class-transformer class-validator dataloader
 
 yarn add  @nestjs-query/query-typegoose @nestjs/common @typegoose/typegoose nestjs-typegoose mongoose mongodb
+
+import { Module } from '@nestjs/common';
+import { AppController } from './app.controller';
+import { AppService } from './app.service';
+import { CatModule } from './cat/cat.module';
+
+@Module({
+  imports: [CatModule],
+  controllers: [AppController],
+  providers: [AppService],
+})
+export class AppModule {}

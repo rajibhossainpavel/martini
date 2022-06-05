@@ -1,9 +1,0 @@
-0. 	(a)yarn  add @nestjs-query/core @nestjs/common class-transformer
-	(b)yarn add @nestjs-query/query-graphql @nestjs/common @nestjs/graphql graphql graphql-subscriptions class-transformer class-validator dataloader
-	(c)yarn add  @nestjs-query/query-typegoose @nestjs/common @typegoose/typegoose nestjs-typegoose mongoose mongodb
-	(d)yarn add pg apollo-server-express
-1. npx nest g mo category-item
-2. npx nest g cl category-item.entity category-item
-3. npx nest g cl category-item.dto category-item
-
-//https://towardsdatascience.com/graphql-code-first-resolver-first-using-typegraphql-and-typegoose-747616223786
