@@ -1,8 +1,5 @@
 import { Base } from '@typegoose/typegoose/lib/defaultClasses';
-import { Prop, modelOptions, Ref } from '@typegoose/typegoose';
-import { Types } from 'mongoose';
-import { SubTaskEntity } from '../sub-task/sub-task.entity';
-import { TagEntity } from '../tag/tag.entity';
+import { Prop, modelOptions } from '@typegoose/typegoose';
 
 @modelOptions({
   schemaOptions: {
@@ -11,7 +8,7 @@ import { TagEntity } from '../tag/tag.entity';
     toObject: { virtuals: true },
   },
 })
-export class TodoItemEntity implements Base {
+export class TodoItemEntity implements Base{
   @Prop({ required: true })
   title!: string;
 
