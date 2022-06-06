@@ -39,8 +39,6 @@ export class ItemsService {
   }
   async itemByNameWithParent(name: string): Promise<ItemType> {
     const cur=await this.itemModule.findOne({ name: name });
-    //const parent=await this.itemModule.findOne({ id: cur.parent});
-
 
     Logger.log(cur);
 
