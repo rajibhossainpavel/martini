@@ -40,3 +40,11 @@ https://tkssharma.com/nestjs-with-graphql-using-nestjs-graphql/
     yarn add ts-morph
     yarn add type-graphql
     yarn add typeorm
+
+mutation{
+  createItem(input:{
+    title: "rajib2",
+    price: 12,
+    description: "rrarr2"
+  }){id}
+  }
