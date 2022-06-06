@@ -14,4 +14,8 @@ export class ItemType {
   @Field(() => Int)
   @IsNumber()
   readonly is_active?: number;
+  @Field()
+  @IsString()
+
+  readonly path?: string;
 }
