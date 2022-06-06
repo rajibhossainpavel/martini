@@ -16,6 +16,11 @@ export class ItemsResolver {
     return this.itemsService.findAll();
   }
 
+  @Query(returns => ItemType)
+  async itemByNameWithParent(@Args('name') name: string): Promise<ItemType> {
+    return this.itemsService.itemByNameWithParent(name);
+  }
+
   @Query(returns => String)
   async hello(): Promise<string> {
     return 'Say Hello'

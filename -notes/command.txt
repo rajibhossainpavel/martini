@@ -49,6 +49,15 @@ mutation{
   }){id}
   }
   
+  query{
+  items{id,name}
+}
+
+query{
+  itemByNameWithParent(name: "pavel23"){id, name, is_active}
+}
+
+  
   /*async findAll(): Promise<ItemType[]> {
     return await this.itemModule.find().exec();
   }*/

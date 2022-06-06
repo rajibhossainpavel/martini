@@ -10,6 +10,7 @@ type ItemType {
 
 type Query {
   items: [ItemType!]!
+  itemByNameWithParent(name: String!): ItemType!
   hello: String!
 }
 

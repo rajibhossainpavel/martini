@@ -4,6 +4,7 @@ import { Model } from 'mongoose';
 import { ItemInput } from './input-items.input';
 import { ItemType } from './dto/create-item.dto';
 import { Item } from './interfaces/item.interface';
+
 @Injectable()
 export class ItemsService {
   constructor(
@@ -36,6 +37,16 @@ export class ItemsService {
   async findOneByName(name: string): Promise<ItemType> {
     return await this.itemModule.findOne({ name: name });
   }
+  async itemByNameWithParent(name: string): Promise<ItemType> {
+    const cur=await this.itemModule.findOne({ name: name });
+    //const parent=await this.itemModule.findOne({ id: cur.parent});
+
+
+    Logger.log(cur);
+
+   return cur;
+  }
+
   async delete(id: string): Promise<ItemType> {
     return await this.itemModule.findByIdAndRemove(id);
   }
