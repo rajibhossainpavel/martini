@@ -1,7 +1,14 @@
 //import { Prop, modelOptions} from '@typegoose/typegoose';
 import { Prop} from '@typegoose/typegoose';
 
-//@modelOptions({schemaOptions: {timestamps: true}})
+@modelOptions({
+    schemaOptions: {
+      timestamps: { createdAt: 'created', updatedAt: 'updated' },
+      collection: 'authors',
+      toObject: { virtuals: true },
+    },
+  })
+  
 export class Author {
   @Prop({ required: true })
   name!: string;

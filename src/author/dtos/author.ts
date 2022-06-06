@@ -2,9 +2,9 @@ import { FilterableField, IDField } from '@nestjs-query/query-graphql';
 import { ObjectType, GraphQLISODateTime, Field, ID } from '@nestjs/graphql';
 
 @ObjectType('Author')
-export class Author {
-  @IDField(() => ID)
-  id!: number;
+export class AuthorDTO {
+    @IDField(() => ID)
+    id!: number;
 
   @FilterableField()
   name!: string;
