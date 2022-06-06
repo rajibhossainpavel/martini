@@ -48,3 +48,12 @@ mutation{
     description: "rrarr2"
   }){id}
   }
+  
+  /*async findAll(): Promise<ItemType[]> {
+    return await this.itemModule.find().exec();
+  }*/
+  
+    @Query(returns => [ItemType])
+  async items(): Promise<ItemType[]> {
+    return this.itemsService.findAll();
+  }

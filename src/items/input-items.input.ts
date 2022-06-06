@@ -3,11 +3,9 @@ import {InputType, Field, Int} from '@nestjs/graphql'
 @InputType()
 export class ItemInput {
   @Field()
-   title: string
-
-   @Field(() => Int)
-   price: number
+   category_name: string
 
    @Field()
-   description: string
+   parent_category: string
+
 }

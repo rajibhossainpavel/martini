@@ -25,6 +25,10 @@ export class ItemsService {
   }
 
   async update(id: string, item: ItemInput): Promise<ItemType> {
-    return await this.itemModule.findByIdAndUpdate(id, item, { new: true });
+    return await this.itemModule.findByIdAndUpdate(id, category_name, { new: true });
   }
+}
+
+function category_name(id: string, category_name: any, arg2: { new: true; }): ItemType | PromiseLike<ItemType> {
+  throw new Error('Function not implemented.');
 }

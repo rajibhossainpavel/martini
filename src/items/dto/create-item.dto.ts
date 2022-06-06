@@ -9,26 +9,26 @@ export class ItemType {
   @Field()
   @IsString()
   @IsNotEmpty()
-  categoy_name: string;
+  category_name!: string;
   
   @Field()
   @IsString()
   @IsNotEmpty()
-  parent_categoy: string;
+  parent_category!: string;
 
   @Field(() => Int)
   @IsNumber()
-  is_active: number;
+  is_active?: number;
 
   @Field(() => Int)
   @IsNumber()
-  parent_num: number;
+  parent_num?: number;
 
   @Field(() => Int)
   @IsNumber()
-  left_num: number;
+  left_num?: number;
      
   @Field(() => Int)
   @IsNumber()
-  right_num: number;
+  right_num?: number;
 }

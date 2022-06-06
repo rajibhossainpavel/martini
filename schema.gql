@@ -4,9 +4,12 @@
 
 type ItemType {
   id: ID!
-  title: String!
-  price: Int!
-  description: String!
+  category_name: String!
+  parent_category: String!
+  is_active: Int!
+  parent_num: Int!
+  left_num: Int!
+  right_num: Int!
 }
 
 type Query {
@@ -21,7 +24,6 @@ type Mutation {
 }
 
 input ItemInput {
-  title: String!
-  price: Int!
-  description: String!
+  category_name: String!
+  parent_category: String!
 }
