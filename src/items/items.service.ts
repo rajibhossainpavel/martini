@@ -15,8 +15,13 @@ export class ItemsService {
       const parentObject=await this.findOneByName(createItemDto.parent_name);
       createItemDto['parent']=parentObject;
     }
+    if(createItemDto['name']!==""){
+      const curObject=await this.findOneByName(createItemDto.name);
+      if(curObject!==null){
+        return curObject;
+      }
+    }
     delete createItemDto['parent_name']
-    Logger.log(createItemDto);
   
     const createdItem = new this.itemModule(createItemDto);
    return await createdItem.save() as any;
