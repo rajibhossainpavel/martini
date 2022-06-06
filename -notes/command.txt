@@ -40,18 +40,28 @@ https://tkssharma.com/nestjs-with-graphql-using-nestjs-graphql/
     yarn add ts-morph
     yarn add type-graphql
     yarn add typeorm
-
+	
+===========
+Create Node
+===========
+POST: localhost:3000/graphql
 mutation{
     createItem(input:{
-        name: "raju"
+        name: "rhp"
         parent_name: ""
     }){id}
 }  
-  query{
-  items{id,name}
-}
+mutation{
+    createItem(input:{
+        name: "rajib"
+        parent_name: "rhp"
+    }){id}
+}   
 
-
+===================
+Node Details by Name
+====================
+POST: localhost:3000/graphql
   query{
   itemByNameWithParent(name: "pavel2"){id, name, is_active,parent_name}
 }
