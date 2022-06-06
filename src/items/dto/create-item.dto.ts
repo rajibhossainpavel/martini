@@ -4,31 +4,31 @@ import { IsString, IsNotEmpty, IsNumber } from 'class-validator';
 export class ItemType {
   @Field(() => ID)
   @IsString()
-   id?: string;
+  readonly id?: string;
 
   @Field()
   @IsString()
   @IsNotEmpty()
-  category_name!: string;
+  readonly category_name!: string;
   
   @Field()
   @IsString()
   @IsNotEmpty()
-  parent_category!: string;
+  readonly parent_category!: string;
 
   @Field(() => Int)
   @IsNumber()
-  is_active?: number;
+  readonly is_active?: number;
 
   @Field(() => Int)
   @IsNumber()
-  parent_num?: number;
+  readonly parent_num?: number;
 
   @Field(() => Int)
   @IsNumber()
-  left_num?: number;
+  readonly left_num?: number;
      
   @Field(() => Int)
   @IsNumber()
-  right_num?: number;
+  readonly right_num?: number;
 }

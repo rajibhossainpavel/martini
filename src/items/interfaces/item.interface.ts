@@ -3,6 +3,6 @@
 import { Document } from 'mongoose';
 
 export interface Item extends Document {
-   category_name: string;
-   parent_category: string;
+   readonly category_name: string;
+   readonly parent_category: string;
 }
