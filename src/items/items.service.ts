@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, Logger } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { ItemInput } from './input-items.input';
@@ -11,8 +11,16 @@ export class ItemsService {
   ) { }
 
   async create(createItemDto: ItemInput): Promise<ItemType> {
+    if(createItemDto['parent_name']!==""){
+      const parentObject=await this.findOneByName(createItemDto.parent_name);
+      createItemDto['parent']=parentObject;
+    }
+    delete createItemDto['parent_name']
+    Logger.log(createItemDto);
+  
     const createdItem = new this.itemModule(createItemDto);
-    return await createdItem.save() as any;
+   return await createdItem.save() as any;
+ 
   }
   async findAll(): Promise<ItemType[]> {
     return await this.itemModule.find().exec();
@@ -20,12 +28,15 @@ export class ItemsService {
   async findOne(id: string): Promise<ItemType> {
     return await this.itemModule.findOne({ _id: id });
   }
+  async findOneByName(name: string): Promise<ItemType> {
+    return await this.itemModule.findOne({ name: name });
+  }
   async delete(id: string): Promise<ItemType> {
     return await this.itemModule.findByIdAndRemove(id);
   }
 
   async update(id: string, item: ItemInput): Promise<ItemType> {
-    return await this.itemModule.findByIdAndUpdate(id, category_name, { new: true });
+    return await this.itemModule.findByIdAndUpdate(id, { new: true });
   }
 }
 

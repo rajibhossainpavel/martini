@@ -1,10 +1,8 @@
 import * as mongoose from 'mongoose';
+import * as MpathPlugin from 'mongoose-mpath';
 
 export const ItemSchema = new mongoose.Schema({
-  category_name: String,
-  parent_category: String,
-  is_active: Number,
-  parent_num: Number,
-  left_num: Number,
-  right_num: Number
+  name: String,
+  is_active:Number
 })
+ItemSchema.plugin(MpathPlugin);
