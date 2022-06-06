@@ -1,4 +1,4 @@
-import { ObjectType, Field, Float, Int, ID } from '@nestjs/graphql';
+import { ObjectType, Field, Int, ID} from '@nestjs/graphql';
 import { IsString, IsNotEmpty, IsNumber } from 'class-validator';
 @ObjectType()
 export class ItemType {
@@ -9,25 +9,16 @@ export class ItemType {
   @Field()
   @IsString()
   @IsNotEmpty()
-   name: string;
-  
-  @Field()
-  @IsString()
-  @IsNotEmpty()
   categoy_name: string;
   
   @Field()
   @IsString()
   @IsNotEmpty()
   parent_categoy: string;
-  
-  @Field(() => Float)
+
+  @Field(() => Int)
   @IsNumber()
-   price: number;
-  
-   @Field()
-  @IsString()
-   description: string;
+  is_active: number;
 
   @Field(() => Int)
   @IsNumber()
