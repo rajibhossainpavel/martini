@@ -42,22 +42,20 @@ https://tkssharma.com/nestjs-with-graphql-using-nestjs-graphql/
     yarn add typeorm
 
 mutation{
-  createItem(input:{
-    title: "rajib2",
-    price: 12,
-    description: "rrarr2"
-  }){id}
-  }
-  
+    createItem(input:{
+        name: "raju"
+        parent_name: ""
+    }){id}
+}  
   query{
   items{id,name}
 }
 
-query{
-  itemByNameWithParent(name: "pavel23"){id, name, is_active}
+
+  query{
+  itemByNameWithParent(name: "pavel2"){id, name, is_active,parent_name}
 }
 
-  
   /*async findAll(): Promise<ItemType[]> {
     return await this.itemModule.find().exec();
   }*/

@@ -38,11 +38,22 @@ export class ItemsService {
     return await this.itemModule.findOne({ name: name });
   }
   async itemByNameWithParent(name: string): Promise<ItemType> {
-    const cur=await this.findOneByName(name);
+    let curNode=await this.findOneByName(name);
+    if(curNode.path.indexOf("#")>=0){
+    const curArray=curNode.path.split("#");
+    const parentId=curArray[curArray.length-2];
+    const parentNode=await this.findOne(parentId);
+    curNode.parent_name=parentNode.name;
 
-    Logger.log(cur.path);
 
-   return cur;
+    }else{
+      const parentNode="";
+      curNode.parent_name=parentNode;
+    }
+
+
+
+   return curNode;
   }
 
   async delete(id: string): Promise<ItemType> {
