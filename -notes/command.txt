@@ -1,0 +1,42 @@
+0. 	(a)yarn  add @nestjs-query/core @nestjs/common class-transformer
+	(b)yarn add @nestjs-query/query-graphql @nestjs/common @nestjs/graphql graphql graphql-subscriptions class-transformer class-validator dataloader
+	(c)yarn add  @nestjs-query/query-typegoose @nestjs/common @typegoose/typegoose nestjs-typegoose mongoose mongodb
+	(d)yarn add pg apollo-server-express
+	 yarn add @nestjs/graphql @nestjs/apollo graphql apollo-server-express
+
+1. npx nest g mo category-item
+2. npx nest g cl category-item.entity category-item
+3. npx nest g cl category-item.dto category-item
+
+//https://towardsdatascience.com/graphql-code-first-resolver-first-using-typegraphql-and-typegoose-747616223786
+//https://docs.nestjs.com/cli/usages
+
+@Module({
+  imports: [
+    GraphQLModule.forRoot<ApolloDriverConfig>({
+      driver: ApolloDriver,
+    }),
+  ],
+})
+
+https://tkssharma.com/nestjs-with-graphql-using-nestjs-graphql/
+
+    yarn add @nestjs/apollo
+    yarn add @nestjs/common
+    yarn add @nestjs/config
+    yarn add @nestjs/core
+    yarn add @nestjs/graphql
+    yarn add @nestjs/platform-express
+    yarn add @nestjs/typeorm
+    yarn add apollo-server-express
+    yarn add fbjs-scripts
+    yarn add graphql
+    yarn add graphql-tools
+    yarn add joi
+    yarn add pg
+    yarn add reflect-metadata
+    yarn add rimraf
+    yarn add rxjs
+    yarn add ts-morph
+    yarn add type-graphql
+    yarn add typeorm
