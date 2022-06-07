@@ -34,11 +34,6 @@ mutation{
   })
 }
 
-mutation{
-  disableItem(disable_input:{
-    name: "rhp"
-  }){id}
-}
 --------------------
 Node Details by Name
 --------------------
