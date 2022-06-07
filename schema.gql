@@ -19,6 +19,7 @@ type Query {
 type Mutation {
   createItem(input: ItemInput!): ItemType!
   updateItem(input: ItemInput!, id: String!): ItemType!
+  disableItem(disable_input: DisableItemInput!): String!
   deleteItem(id: String!): ItemType!
 }
 
@@ -26,4 +27,8 @@ input ItemInput {
   name: String!
   parent_name: String!
   is_active: Float = 1
+}
+
+input DisableItemInput {
+  name: String!
 }

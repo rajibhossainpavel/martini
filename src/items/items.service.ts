@@ -50,12 +50,28 @@ export class ItemsService {
       const parentNode="";
       curNode.parent_name=parentNode;
     }
-
-
-
-   return curNode;
+    return curNode;
   }
+  
 
+  async disableItem(name: string): Promise<String>{
+    let curNode=await this.findOneByName(name);
+    if(curNode!==null){
+      const path=curNode.path;
+      const allNodes=await this.findAll();
+      allNodes.forEach(async(element)=>{
+        if(element.path.indexOf(path)>=0){
+          await this.itemModule.findByIdAndUpdate(element.id, {is_active: 0});
+
+        }
+      });
+
+    }else{
+      return "Failed."
+    }
+    
+    return "success.";
+  }
   async delete(id: string): Promise<ItemType> {
     return await this.itemModule.findByIdAndRemove(id);
   }

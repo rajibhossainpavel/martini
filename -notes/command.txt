@@ -40,6 +40,13 @@ https://tkssharma.com/nestjs-with-graphql-using-nestjs-graphql/
     yarn add ts-morph
     yarn add type-graphql
     yarn add typeorm
+
+
+============
+SETUP
+=======
+Put your database string in app.module.ts file.
+
 	
 ===========
 Create Node
@@ -58,6 +65,21 @@ mutation{
     }){id}
 }   
 
+===============
+Disable an Item
+================
+POST: localhost:3000/graphql
+mutation{
+  disableItem(disable_input:{
+    name: "pavel2"
+  })
+}
+
+mutation{
+  disableItem(disable_input:{
+    name: "rhp"
+  }){id}
+}
 ===================
 Node Details by Name
 ====================
@@ -65,12 +87,3 @@ POST: localhost:3000/graphql
   query{
   itemByNameWithParent(name: "pavel2"){id, name, is_active,parent_name}
 }
-
-  /*async findAll(): Promise<ItemType[]> {
-    return await this.itemModule.find().exec();
-  }*/
-  
-    @Query(returns => [ItemType])
-  async items(): Promise<ItemType[]> {
-    return this.itemsService.findAll();
-  }

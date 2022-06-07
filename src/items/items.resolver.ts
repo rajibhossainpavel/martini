@@ -3,6 +3,7 @@ import { Resolver } from "@nestjs/graphql";
 import { Args, Mutation, Query } from "@nestjs/graphql";
 import { ItemType } from "./dto/create-item.dto";
 import { ItemInput } from "./input-items.input";
+import { DisableItemInput } from "./disable-input-items.input";
 import { ItemsService } from "./items.service";
 
 
@@ -34,6 +35,11 @@ export class ItemsResolver {
   @Mutation(returns => ItemType)
   async updateItem(@Args('id') id: string, @Args('input') input: ItemInput): Promise<ItemType> {
     return this.itemsService.update(id, input);
+  }
+
+  @Mutation(returns => String)
+  async disableItem(@Args('disable_input') disable_input: DisableItemInput): Promise<String> {
+    return this.itemsService.disableItem(disable_input.name);
   }
 
   @Mutation(returns => ItemType)
